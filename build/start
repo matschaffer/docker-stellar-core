@@ -15,3 +15,11 @@ mkdir -p "${DEST}"
 ./configure
 
 make install DESTDIR="${DEST}"
+
+SHA=`git rev-parse HEAD | cut -b1-8`
+
+STELLAR_CORE_VERSION="${VERSION}-${BUILD_NUMBER}-${SHA}"
+
+fpm -s dir -t deb -n stellar-core -v "${STELLAR_CORE_VERSION}" -C "${DEST}" \
+    -p stellar-core-VERSION_ARCH.deb \
+      usr/local/bin/stellar-core
