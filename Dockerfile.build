@@ -1,0 +1,12 @@
+FROM stellar/base:latest
+
+MAINTAINER Mat Schaffer <mat@stellar.org>
+
+ADD build/install /
+RUN /install
+
+VOLUME /stellar-core
+
+ADD build/start /
+
+CMD ["/start"]
