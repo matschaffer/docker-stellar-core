@@ -9,6 +9,7 @@ apt-get install -y \
   git \
   ruby \
   ruby-dev \
+  pandoc \
   gcc \
   autoconf \
   automake \
